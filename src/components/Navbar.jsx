@@ -1,5 +1,10 @@
 const Navbar = () => {
-  return <h1>NavBar</h1>;
+  return (
+    <>
+      <ul>
+        <li> List</li>
+      </ul>
+    </>
+  );
 };
-
 export default Navbar;
