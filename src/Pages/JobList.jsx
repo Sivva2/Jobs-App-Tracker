@@ -1,7 +1,8 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
+import { Link } from "react-router-dom";
 
 const JobList = () => {
-  const [job, setJob] = useState();
+  const [job, setJob] = useState([]);
 
   useEffect(() => {
     const fetchjob = async () => {
