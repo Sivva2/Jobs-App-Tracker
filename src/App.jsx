@@ -1,5 +1,21 @@
+import { Routes, Route } from "react-router-dom";
+import Navbar from "./components/Navbar";
+
+//import JobForm from "./components/JobForm";
+import UpdateJob from "./Pages/UpdateJob";
+import JobDetailPage from "./Pages/JobDetailsPage";
+
 function App() {
-  return <>Ready to code with Mantine, a router would be nice in there 😺</>
+  return (
+    <div className="App">
+      <Routes>
+        <Route path="/" element={<HomePage />} />
+        <Route path="/job/:jobId" element={<JobDetailPage />} />
+        <Route path="*" element={<ErrorPage />} />
+        <Route path="/job/${jobId}/Update" element={<UpdateJob />} />
+      </Routes>
+    </div>
+  );
 }
 
-export default App
+export default App;
