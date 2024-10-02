@@ -16,7 +16,7 @@ function App() {
         <Route path="/" element={<HomePage />} />
         <Route path="/job/:jobId" element={<JobDetailPage />} />
         <Route path="*" element={<ErrorPage />} />
-        <Route path="/job/${jobId}/Update" element={<UpdateJob />} />
+        <Route path="/job/:jobId/Update" element={<UpdateJob />} />
       </Routes>
     </div>
   );

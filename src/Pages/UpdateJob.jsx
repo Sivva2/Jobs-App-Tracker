@@ -2,6 +2,7 @@ import axios from "axios";
 import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import JobForm from "../components/JobForm";
+import { Container, LoadingOverlay, Text } from "@mantine/core";
 
 const UpdateJob = () => {
   const { jobId } = useParams();
@@ -24,8 +25,17 @@ const UpdateJob = () => {
   }, [jobId]);
 
   if (loading) return <p>Loading job data...</p>;
-
-  return <JobForm job={job} />;
+  return (
+    <Container size="sm" className="update-job-container">
+      <LoadingOverlay visible={loading} />
+      {!loading && job ? (
+        <JobForm job={job} />
+      ) : (
+        <Text align="center" className="loading-text">
+          Loading job data...
+        </Text>
+      )}
+    </Container>
+  );
 };
-
 export default UpdateJob;
