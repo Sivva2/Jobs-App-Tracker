@@ -16,10 +16,10 @@ const Navbar = () => {
         <Menu.Item component={Link} to="/">
           Home
         </Menu.Item>
-        <Menu.Item component={Link} to="/joblist">
+        <Menu.Item component={Link} to="/job">
           Job List
         </Menu.Item>
-        <Menu.Item component={Link} to="/job/${jobId}/Update">
+        <Menu.Item component={Link} to="/job/:jobId/Update">
           Job Update
         </Menu.Item>
       </Menu.Dropdown>
