@@ -1,6 +1,7 @@
 import axios from "axios";
 import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
+import { Loader, Alert, Card, Title, Text, List, Anchor } from "@mantine/core";
 
 const JobList = () => {
   const [jobs, setJobs] = useState([]);
@@ -25,19 +26,46 @@ const JobList = () => {
     fetchJobs();
   }, []);
 
-  if (loading) return <p>Loading jobs...</p>;
-  if (error) return <p>{error}</p>;
+  if (loading)
+    return (
+      <div className="loader-container">
+        <Loader size="xl" variant="bars" />
+      </div>
+    );
+
+  if (error)
+    return (
+      <Alert title="Error" color="red" withCloseButton className="error-alert">
+        {error}
+      </Alert>
+    );
 
   return (
     <>
-      <h1>Job App Tracker</h1>
-      <ul>
+      <Title align="center" mb="lg" className="title">
+        Job App Tracker
+      </Title>
+      <List spacing="sm" size="sm" type="unordered" className="job-list">
         {jobs.map((job) => (
-          <li key={job.id}>
-            <Link to={`/job/${job.id}`}>{job.company}</Link>
-          </li>
+          <List.Item key={job.id} className="job-list-item">
+            <Card
+              shadow="sm"
+              padding="lg"
+              radius="md"
+              withBorder
+              className="job-card"
+            >
+              <Anchor
+                component={Link}
+                to={`/job/${job.id}`}
+                className="job-link"
+              >
+                <Text weight={500}>{job.company}</Text>
+              </Anchor>
+            </Card>
+          </List.Item>
         ))}
-      </ul>
+      </List>
     </>
   );
 };

@@ -25,3 +25,47 @@
   font-size: var(--mantine-font-size-sm);
   font-weight: 500;
 }
+.loader-container {
+  display: flex;
+  justify-content: center;
+  margin-top: 20px;
+}
+
+.error-alert {
+  margin: 20px auto;
+  max-width: 600px;
+}
+
+.title {
+  margin-bottom: 30px;
+  text-align: center;
+  font-size: 2rem;
+}
+
+.job-list {
+  margin: 0 auto;
+  padding: 0;
+  max-width: 600px;
+}
+
+.job-list-item {
+  list-style: none;
+  margin-bottom: 10px;
+}
+
+.job-card {
+  border-radius: 8px;
+  padding: 20px;
+}
+
+.job-link {
+  text-decoration: none;
+  color: inherit;
+  font-size: 1.1rem;
+  font-weight: bold;
+}
+
+.job-link:hover {
+  color: #1c7ed6;
+  text-decoration: underline;
+}
