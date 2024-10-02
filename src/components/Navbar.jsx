@@ -1,7 +1,11 @@
 import { Button, Menu } from "@mantine/core";
-import classes from "../styles/navbar.css";
+/* import classes from "../styles/navbar.css"; */
+import { useState } from "react";
+import { Link } from "react-router-dom";
 
 const Navbar = () => {
+  const [dropdownVisible, setDropdownVisible] = useState(false);
+
   return (
     <Menu opened={dropdownVisible} onChange={setDropdownVisible}>
       <Menu.Target>

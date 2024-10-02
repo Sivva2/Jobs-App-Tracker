@@ -1,7 +1,7 @@
 import axios from "axios";
 import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
-import JobForm from "../components/JobForm";
+/* import JobForm from "../components/JobForm"; */
 
 const UpdateJob = () => {
   const { jobId } = useParams();
