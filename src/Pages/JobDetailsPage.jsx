@@ -1,6 +1,6 @@
 import axios from "axios";
 import { useEffect, useState } from "react";
-import { useNavigate, useParams } from "react-router-dom";
+import { Link, useNavigate, useParams } from "react-router-dom";
 
 const JobDetailPage = () => {
   const [job, setJob] = useState(null);
@@ -11,7 +11,7 @@ const JobDetailPage = () => {
   const fetchJob = async () => {
     try {
       const response = await axios.get(
-        `${import.meta.env.VITE_API_URL}/${jobId}`
+        `${import.meta.env.VITE_API_URL}/jobs/${jobId}`
       );
       setJob(response.data);
       setLoading(false);
@@ -24,7 +24,7 @@ const JobDetailPage = () => {
   const remove = async () => {
     try {
       const response = await axios.delete(
-        `${import.meta.env.VITE_API_URL}/${jobId}`
+        `${import.meta.env.VITE_API_URL}/jobs/${jobId}`
       );
       console.log("Item deleted:", response.data);
       navigate("/jobs");

@@ -39,12 +39,11 @@ const Navbar = () => {
                 Menu
               </Button>
             </Menu.Target>
-
             <Menu.Dropdown>
               <Menu.Item className="header" component={Link} to="/">
                 Home
               </Menu.Item>
-              <Menu.Item className="droplistitem" component={Link} to="/job">
+              <Menu.Item className="droplistitem" component={Link} to="/jobs">
                 Job List
               </Menu.Item>
               <Menu.Item
@@ -89,36 +88,3 @@ const Navbar = () => {
   );
 };
 export default Navbar;
-
-{
-  /* <header className={classes.header}>
-  <div className={classes.inner}>
-    <Group>
-      <Group ml={50} gap={5} className={classes.links} visibleFrom="sm">
-        {items}
-      </Group>
-      <Autocomplete
-        className={classes.search}
-        placeholder="Search"
-        leftSection={
-          <IconSearch
-            style={{ width: rem(16), height: rem(16) }}
-            stroke={1.5}
-          />
-        }
-        data={[
-          "React",
-          "Angular",
-          "Vue",
-          "Next.js",
-          "Riot.js",
-          "Svelte",
-          "Blitz.js",
-        ]}
-        visibleFrom="xs"
-      />
-    </Group>
-  </div>
-</header>;
- */
-}
