@@ -12,7 +12,7 @@ const UpdateJob = () => {
   const fetchOneJob = async () => {
     try {
       const response = await axios.get(
-        `${import.meta.env.VITE_API_URL}/job/${jobId}`
+        `${import.meta.env.VITE_API_URL}/jobs/${jobId}`
       );
       setJob(response.data);
       setLoading(false);
