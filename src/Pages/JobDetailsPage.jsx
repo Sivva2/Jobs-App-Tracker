@@ -24,7 +24,7 @@ const JobDetailPage = () => {
   const remove = async () => {
     try {
       const response = await axios.delete(
-        `${import.meta.env.VITE_API_URL}/${jobId}`
+        `${import.meta.env.VITE_API_URL}/jobs/${jobId}`
       );
       console.log("Item deleted:", response.data);
       navigate("/jobs");

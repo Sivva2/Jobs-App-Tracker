@@ -10,7 +10,9 @@ const JobList = () => {
   useEffect(() => {
     const fetchJobs = async () => {
       try {
-        const response = await axios.get("http://localhost:4000/job");
+        const response = await axios.get(
+          `${import.meta.env.VITE_API_URL}/jobs`
+        );
         setJobs(response.data);
       } catch (error) {
         console.error("Error fetching jobs:", error);
