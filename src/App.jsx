@@ -1,6 +1,6 @@
 import { Routes, Route } from "react-router-dom";
 import Navbar from "./components/Navbar";
-
+import "./styles/global.css";
 import UpdateJob from "./Pages/UpdateJob";
 import JobDetailPage from "./Pages/JobDetailsPage";
 import HomePage from "./Pages/HomePage";

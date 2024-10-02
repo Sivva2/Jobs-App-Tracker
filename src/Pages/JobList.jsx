@@ -26,8 +26,6 @@ const JobList = () => {
   if (loading) return <p>Loading jobs...</p>;
   if (error) return <p>{error}</p>;
 
-  if (jobs.length === 0) return <p>No jobs available.</p>;
-
   return (
     <>
       <h1>Job App Tracker</h1>

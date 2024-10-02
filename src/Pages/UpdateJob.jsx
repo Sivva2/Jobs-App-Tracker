@@ -11,7 +11,9 @@ const UpdateJob = () => {
 
   const fetchOneJob = async () => {
     try {
-      const response = await axios.get(`http://localhost:4000/jobs/${jobId}`);
+      const response = await axios.get(
+        `${import.meta.env.VITE_API_URL}/jobs/${jobId}`
+      );
       setJob(response.data);
       setLoading(false);
     } catch (error) {

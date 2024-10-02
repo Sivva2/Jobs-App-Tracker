@@ -10,7 +10,9 @@ const JobDetailPage = () => {
 
   const fetchJob = async () => {
     try {
-      const response = await axios.get(`http://localhost:4000/${jobId}`);
+      const response = await axios.get(
+        `${import.meta.env.VITE_API_URL}/${jobId}`
+      );
       setJob(response.data);
       setLoading(false);
     } catch (error) {
@@ -21,7 +23,9 @@ const JobDetailPage = () => {
 
   const remove = async () => {
     try {
-      const response = await axios.delete(`http://localhost:4000/${jobId}`);
+      const response = await axios.delete(
+        `${import.meta.env.VITE_API_URL}/${jobId}`
+      );
       console.log("Item deleted:", response.data);
       navigate("/jobs");
     } catch (error) {
