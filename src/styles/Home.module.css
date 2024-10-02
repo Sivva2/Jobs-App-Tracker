@@ -1,0 +1,28 @@
+.home {
+  padding: 20px;
+  background-color: var(--mantine-color-blue-light);
+  color: white;
+}
+
+.title {
+  color: black;
+  font-size: 2rem;
+  margin-bottom: 20px;
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+
+.paragraphBox {
+  background-color: var(--mantine-color-white);
+  padding: 15px;
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+  border-radius: 8px;
+  box-shadow: 2rem;
+  color: black;
+}
+
+.paragraph {
+  color: black;
+  font-size: 1rem;
+  margin-bottom: 15px;
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+}

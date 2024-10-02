@@ -1,0 +1,30 @@
+.footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px 20px;
+  background-color: var(--mantine-color-blue-light);
+  color: white;
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+
+.iconText {
+  display: flex;
+  align-items: center;
+}
+
+.icon {
+  margin-right: 8px;
+}
+
+.links {
+  display: flex;
+  gap: 15px;
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+
+.link {
+  color: white;
+  text-decoration: none;
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+}

@@ -7,7 +7,7 @@ import { BrowserRouter as Router } from "react-router-dom";
 // Import styles of packages that you've installed.
 // All packages except `@mantine/hooks` require styles imports
 import "@mantine/core/styles.css";
-import "./styles/global.css";
+import "./styles/Global.css";
 import theme from "./styles/theme.js";
 
 ReactDOM.createRoot(document.getElementById("root")).render(

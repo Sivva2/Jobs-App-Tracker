@@ -1,7 +1,6 @@
-/* .header {
+.header {
   height: rem(56px);
   display: flex;
-  width: 20em;
   text-align: center;
   margin-bottom: rem(120px);
   background-color: var(--mantine-color-body);
@@ -9,6 +8,7 @@
     light-dark(var(--mantine-color-gray-3), var(--mantine-color-dark-4));
   padding-left: var(--mantine-spacing-md);
   padding-right: var(--mantine-spacing-md);
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
 }
 
 .inner {
@@ -16,6 +16,27 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+.droplistitem {
+  height: rem(56px);
+  display: flex;
+  width: 20em;
+  text-align: center;
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+
+.headersearch {
+  height: rem(56px);
+  display: flex;
+  text-align: center;
+  margin-bottom: rem(120px);
+  background-color: var(--mantine-color-body);
+  border-bottom: rem(1px) solid
+    light-dark(var(--mantine-color-gray-3), var(--mantine-color-dark-4));
+  padding-left: var(--mantine-spacing-md);
+  padding-right: var(--mantine-spacing-md);
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
 }
 
 .link {
@@ -27,4 +48,5 @@
   color: light-dark(var(--mantine-color-gray-7), var(--mantine-color-dark-0));
   font-size: var(--mantine-font-size-sm);
   font-weight: 500;
-} */
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
