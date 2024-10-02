@@ -8,10 +8,9 @@ import {
   Group,
   Paper,
   Title,
-  Select,
 } from "@mantine/core";
 import { DatesProvider, DatePicker } from "@mantine/dates";
-import dayjs from "dayjs"; // For date formatting
+import dayjs from "dayjs";
 
 const JobForm = () => {
   const [formValues, setFormValues] = useState({
@@ -27,7 +26,6 @@ const JobForm = () => {
 
   const navigate = useNavigate();
 
-  // Handle form input changes
   const handleChange = (event) => {
     const { name, value } = event.target;
     setFormValues((prevValues) => ({
@@ -36,7 +34,6 @@ const JobForm = () => {
     }));
   };
 
-  // Handle date change for DatePicker
   const handleDateChange = (date) => {
     setFormValues((prevValues) => ({
       ...prevValues,
@@ -44,21 +41,20 @@ const JobForm = () => {
     }));
   };
 
-  // Handle form submission
   const handleSubmit = async (event) => {
     event.preventDefault();
 
     try {
-      const method = formValues.id ? "put" : "post"; // Determine whether to update or create
+      const method = formValues.id ? "put" : "post";
       const url = formValues.id
-        ? `http://localhost:4000/jobs/${formValues.id}`
-        : `http://localhost:4000/jobs`;
+        ? `${import.meta.env.VITE_API_URL}/jobs/${formValues.id}`
+        : `${import.meta.env.VITE_API_URL}/jobs`;
 
       const formattedData = {
         ...formValues,
         dateApplied: formValues.dateApplied
           ? dayjs(formValues.dateApplied).format("YYYY-MM-DD")
-          : null, // Ensure date is in correct format
+          : null,
       };
 
       const response = await axios({

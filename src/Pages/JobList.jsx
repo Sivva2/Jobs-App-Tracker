@@ -1,29 +1,38 @@
+import axios from "axios";
 import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 
 const JobList = () => {
-  const [job, setJob] = useState([]);
+  const [jobs, setJobs] = useState([]);
+  const [loading, setLoading] = useState(true);
+  const [error, setError] = useState(null);
 
   useEffect(() => {
-    const fetchjob = async () => {
-      const response = await fetch("http://localhost:4000/job");
-      if (response.ok) {
-        const data = await response.json();
-        console.log(data);
-        setJob(data);
+    const fetchJobs = async () => {
+      try {
+        const response = await axios.get("http://localhost:4000/job");
+        setJobs(response.data);
+      } catch (error) {
+        console.error("Error fetching jobs:", error);
+        setError("Failed to load jobs. Please try again later.");
+      } finally {
+        setLoading(false);
       }
     };
 
-    fetchjob();
+    fetchJobs();
   }, []);
+
+  if (loading) return <p>Loading jobs...</p>;
+  if (error) return <p>{error}</p>;
 
   return (
     <>
       <h1>Job App Tracker</h1>
       <ul>
-        {job.map((job) => (
+        {jobs.map((job) => (
           <li key={job.id}>
-            <Link to={`/job/${job.id}`}> {job.company} </Link>
+            <Link to={`/job/${job.id}`}>{job.company}</Link>
           </li>
         ))}
       </ul>

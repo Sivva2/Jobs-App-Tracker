@@ -1,4 +1,4 @@
-function Navbar () => {
+
 
 .header {
   height: rem(56px);
@@ -29,4 +29,3 @@ function Navbar () => {
 }
 
 };
-export default Navbar;
