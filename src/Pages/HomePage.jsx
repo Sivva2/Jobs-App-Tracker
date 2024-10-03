@@ -1,4 +1,3 @@
-<<<<<<< Updated upstream
 /* import {
   Group,
   Button,
@@ -62,13 +61,3 @@ const Home = () => {
 };
 
 export default Home;
-=======
-const HomePage = () => {
-  return (
-    <>
-      <h1>Job app Tracker Home</h1>
-    </>
-  );
-};
-export default HomePage;
->>>>>>> Stashed changes

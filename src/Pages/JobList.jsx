@@ -1,7 +1,18 @@
 import axios from "axios";
 import { useEffect, useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
-import { Loader, Alert, Card, Title, Text, List, Anchor, Group, Button } from "@mantine/core";
+import {
+  Loader,
+  Alert,
+  Card,
+  Title,
+  Text,
+  List,
+  Anchor,
+  Group,
+  Button,
+} from "@mantine/core";
+import { useForm } from "@mantine/form";
 
 const JobList = () => {
   const [jobs, setJobs] = useState([]);
@@ -28,7 +39,8 @@ const JobList = () => {
   }, []);
 
   const handleCreate = () => {
-    navigate("/job/new");
+    navigate("/jobs/new");
+  };
 
   if (loading)
     return (
@@ -46,13 +58,13 @@ const JobList = () => {
 
   return (
     <>
-       <Group position="apart" mb="lg">
+      <Group position="apart" mb="lg">
         <Title align="center" className="title">
           Job App Tracker
         </Title>
         <Button onClick={handleCreate} variant="outline">
           Create New Job
-        </Button> 
+        </Button>
       </Group>
       <List spacing="sm" size="sm" type="unordered" className="job-list">
         {jobs.map((job) => (

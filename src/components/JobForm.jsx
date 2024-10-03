@@ -71,10 +71,6 @@ const JobForm = () => {
     }
   };
 
-  const handleCreate = () => {
-    form.reset();
-  };
-
   return (
     <Paper shadow="md" radius="md" p="xl" withBorder>
       <Title order={2} mb="lg">
@@ -147,9 +143,6 @@ const JobForm = () => {
         />
 
         <Group position="right">
-          <Button variant="outline" onClick={handleCreate}>
-            Create New
-          </Button>
           <Button type="submit" loading={loading}>
             Submit
           </Button>
