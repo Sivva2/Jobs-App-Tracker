@@ -23,8 +23,6 @@ const Navbar = () => {
   };
 
   return (
-    /*  <header className={classes.header}>
-      <div className={classes.inner}> */
     <Box style={{ overflow: "visible" }}>
       <Box p="md" mx="auto" bg="var(--mantine-color-blue-light)">
         <Text size="sm" mb={5}>
@@ -46,21 +44,11 @@ const Navbar = () => {
               <Menu.Item className="droplistitem" component={Link} to="/jobs">
                 Job List
               </Menu.Item>
-              <Menu.Item
-                className="droplistitem"
-                component={Link}
-                to="/jobs/:jobId/Update"
-              >
-                Job Update
-              </Menu.Item>
             </Menu.Dropdown>
           </Menu>{" "}
           <Title size="md" variant="default">
             Jobs App Tracker
           </Title>
-          {/*               <Button size="md" fullWidth variant="default">
-                Jobs App Tracker
-              </Button> */}
           <VisuallyHidden> Try a hidden link</VisuallyHidden>{" "}
           <Autocomplete
             className="header"
@@ -83,8 +71,6 @@ const Navbar = () => {
         </Group>
       </Box>
     </Box>
-    /*     </div>
-    </header> */
   );
 };
 export default Navbar;
