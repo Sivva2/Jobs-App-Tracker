@@ -9,6 +9,7 @@ import {
   Autocomplete,
   Fieldset,
   Checkbox,
+  VisuallyHidden,
 } from "@mantine/core";
 import classes from "../styles/Home.module.css";
 
@@ -24,18 +25,19 @@ const Login = () => {
 
   return (
     <Box className={classes.home}>
-      <Title className={classes.title}>Login to Jobs App Tracker</Title>
-      <Box className={classes.paragraphBox}>
+      <Title className={`${classes.paragraphBox} ${classes.limitedWidth}`}>
+        Login to Jobs App Tracker
+      </Title>
+      <Box className={`${classes.paragraphBox} ${classes.limitedWidth}`}>
         <TextInput
           autoComplete={["Web-dev Jr", "Web-dev Sr"]}
           label="Username"
           placeholder="Username"
           value={username}
           onChange={(event) => setUsername(event.currentTarget.value)}
-          data={["Web-dev Jr", "Web-dev Sr"]}
-          className={classes.input}
+          className={`${classes.input} ${classes.limitedWidth}`}
           visibleFrom="xs"
-          description="Description"
+          description="User name or email address"
           withAsterisk
         />
 
@@ -44,11 +46,28 @@ const Login = () => {
           placeholder="Password"
           value={password}
           onChange={(event) => setPassword(event.currentTarget.value)}
-          className={classes.input}
+          className={`${classes.input} ${classes.limitedWidth}`}
         />
-        <Fieldset legend="Disabled" disabled>
-          <Checkbox defaultChecked label="I agree to sell my privacy" />
-          <Button onClick={handleLogin} className={classes.button}>
+        <Fieldset
+          legend="Disabled"
+          disabled
+          className={`${classes.input} ${classes.limitedWidth}`}
+        >
+          <Checkbox
+            className={`${classes.input} ${classes.checkbox}`}
+            defaultChecked
+            label="I register for the first time"
+          />{" "}
+          <Checkbox
+            className={`${classes.input} ${classes.checkbox}`}
+            defaultChecked
+            label="I agree to sell my privacy no matter what it cost"
+          />{" "}
+          <Text> {"  "} </Text>{" "}
+          <Button
+            className={`${classes.input} ${classes.checkbox}`}
+            onClick={handleLogin}
+          >
             Log In
           </Button>
         </Fieldset>

@@ -76,7 +76,7 @@ const Navbar = () => {
           />
           <Button className="header" component={Link} to="/login">
             {" "}
-            Log In
+            Login
           </Button>
         </Group>
       </Box>
