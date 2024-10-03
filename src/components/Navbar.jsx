@@ -46,10 +46,13 @@ const Navbar = () => {
               </Menu.Item>
             </Menu.Dropdown>
           </Menu>{" "}
-          <Title size="md" variant="default">
-            Jobs App Tracker
-          </Title>
-          <VisuallyHidden> Try a hidden link</VisuallyHidden>{" "}
+          <Group justify="center">
+            <Link to="/"> </Link>
+
+            <Title size="md" variant="default">
+              Jobs App Tracker
+            </Title>
+          </Group>
           <Autocomplete
             className="header"
             placeholder="Search"
