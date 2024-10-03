@@ -3,6 +3,8 @@ import { Box, Text, Group, Button } from "@mantine/core";
 import { Link } from "react-router-dom";
 import classes from "../styles/Footer.module.css";
 import { Image } from "@mantine/core";
+import github from "../images/github_32.png";
+
 const Footer = () => {
   return (
     <Box className={classes.footer}>
@@ -13,13 +15,7 @@ const Footer = () => {
       </Group>
 
       <Group className={classes.links}>
-        <Image
-          className={classes.links}
-          radius="md"
-          h={32}
-          w={32}
-          src="../images/github_16.png"
-        />
+        <img src={github} />
         <Link
           target="https://github.com/Sivva2/Jobs-App-Tracker"
           to="https://github.com/Sivva2/Jobs-App-Tracker"
