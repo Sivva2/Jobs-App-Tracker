@@ -1,0 +1,68 @@
+.loader-container {
+  display: flex !important;
+  justify-content: center !important;
+  align-items: center !important;
+  height: 100vh !important;
+}
+
+.error-alert {
+  margin: 20px !important;
+}
+
+.title {
+  font-size: 2rem !important;
+  color: #1a1a1a !important;
+}
+
+.job-list {
+  margin: 20px 0 !important;
+  list-style-type: none !important;
+  padding-left: 0 !important;
+  display: flex !important;
+  flex-wrap: wrap !important;
+  justify-content: center !important;
+}
+
+.job-list-item {
+  margin-bottom: 15px !important;
+}
+
+.job-card {
+  transition: transform 0.3s ease !important;
+  cursor: pointer !important;
+  max-width: 300px !important;
+  width: 100% !important;
+}
+
+.job-card:hover {
+  transform: scale(1.03) !important;
+}
+
+.job-link {
+  text-decoration: none !important;
+  color: inherit !important;
+}
+
+.job-link:hover {
+  text-decoration: underline !important;
+}
+
+.button {
+  background-color: #007bff !important;
+  color: white !important;
+  border: none !important;
+  padding: 10px 20px !important;
+  border-radius: 5px !important;
+  cursor: pointer !important;
+}
+
+.button:hover {
+  background-color: #0056b3 !important;
+}
+
+ul,
+ol {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}

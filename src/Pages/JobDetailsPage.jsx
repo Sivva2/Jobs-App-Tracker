@@ -1,6 +1,8 @@
 import axios from "axios";
 import { useEffect, useState } from "react";
 import { Link, useNavigate, useParams } from "react-router-dom";
+import { Card, Loader, Button, Text } from "@mantine/core"; // Ensure you are importing correctly
+import classes from "../styles/JobDetailPage.module.css"; // Ensure you have the correct path for your CSS
 
 const JobDetailPage = () => {
   const [job, setJob] = useState(null);
@@ -23,10 +25,7 @@ const JobDetailPage = () => {
 
   const remove = async () => {
     try {
-      const response = await axios.delete(
-        `${import.meta.env.VITE_API_URL}/jobs/${jobId}`
-      );
-      console.log("Item deleted:", response.data);
+      await axios.delete(`${import.meta.env.VITE_API_URL}/jobs/${jobId}`);
       navigate("/jobs");
     } catch (error) {
       console.error("Error removing the item:", error);
@@ -37,25 +36,44 @@ const JobDetailPage = () => {
     fetchJob();
   }, [jobId]);
 
-  if (loading) return <p>Loading job details...</p>;
+  if (loading)
+    return <Loader size="xl" variant="bars" className={classes.loader} />;
 
   return (
-    <>
-      <h2>Company: {job.company}</h2>
-      <p>Job title: {job.jobTitle}</p>
-      <p>description: {job.description}</p>
-      <p>dateApplied: {job.dateApplied}</p>
-      <p>status: {job.status}</p>
-      <p>contact: {job.contact}</p>
-      <p>jobLink:{job.jobLink}</p>
-      <p> notes:{job.notes}</p>
-      <button type="button" onClick={remove}>
-        Delete
-      </button>
-      <Link to={`/jobs/${jobId}/Update`}>
-        <button type="button">Update</button>
-      </Link>
-    </>
+    <div className={classes.container}>
+      <Card className={classes.card}>
+        <Text className={classes.company} weight={700} size="xl">
+          Company: {job.company}
+        </Text>
+        <Text className={classes.jobTitle} weight={500} size="lg">
+          Job Title: {job.jobTitle}
+        </Text>
+        <Text className={classes.description}>
+          Description: {job.description}
+        </Text>
+        <Text className={classes.dateApplied}>
+          Date Applied: {job.dateApplied}
+        </Text>
+        <Text className={classes.status}>Status: {job.status}</Text>
+        <Text className={classes.contact}>Contact: {job.contact}</Text>
+        <Text className={classes.jobLink}>
+          Job Link:
+          <a href={job.jobLink} target="_blank" rel="noopener noreferrer">
+            {job.jobLink}
+          </a>
+        </Text>
+        <Text className={classes.notes}>Notes: {job.notes}</Text>
+
+        <div className={classes.buttonGroup}>
+          <Button onClick={remove} color="red" variant="outline">
+            Delete
+          </Button>
+          <Link to={`/jobs/${jobId}/Update`}>
+            <Button variant="outline">Update</Button>
+          </Link>
+        </div>
+      </Card>
+    </div>
   );
 };
 

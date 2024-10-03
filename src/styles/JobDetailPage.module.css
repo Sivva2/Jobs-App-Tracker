@@ -1,0 +1,44 @@
+.container {
+  display: flex !important;
+  justify-content: center !important;
+  align-items: center !important;
+  min-height: 100vh !important;
+  padding: 20px !important;
+  background-color: #f9f9f9 !important;
+}
+
+.card {
+  width: 100% !important;
+  max-width: 600px !important;
+  padding: 20px !important;
+  background: white !important;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1) !important;
+  border-radius: 10px !important;
+}
+
+.company {
+  color: #007bff !important;
+}
+
+.jobTitle {
+  margin-top: 10px !important;
+}
+
+.description,
+.dateApplied,
+.status,
+.contact,
+.jobLink,
+.notes {
+  margin-top: 5px !important;
+}
+
+.buttonGroup {
+  margin-top: 20px !important;
+  display: flex !important;
+  justify-content: space-between !important;
+}
+
+.loader {
+  margin-top: 20vh !important;
+}
