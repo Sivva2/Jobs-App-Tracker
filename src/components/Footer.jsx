@@ -18,7 +18,7 @@ const Footer = () => {
           radius="md"
           h={32}
           w={32}
-          src="../images/github_32.png"
+          src="../images/github_16.png"
         />
         <Link
           target="https://github.com/Sivva2/Jobs-App-Tracker"
