@@ -7,6 +7,7 @@ import HomePage from "./Pages/HomePage";
 import ErrorPage from "./Pages/ErrorPage";
 import JobList from "./Pages/JobList";
 import Footer from "./components/Footer";
+import AboutUs from "./Pages/AboutUs";
 
 function App() {
   return (
@@ -18,6 +19,7 @@ function App() {
         <Route path="/job/:jobId" element={<JobDetailPage />} />
         <Route path="*" element={<ErrorPage />} />
         <Route path="/job/:jobId/Update" element={<UpdateJob />} />
+        <Route path="/aboutus" element={<AboutUs />} />
       </Routes>
       <Footer />
     </div>

@@ -6,6 +6,7 @@
   );
 };
  */
+
 import React from "react";
 import { Box, Text, Group, Button } from "@mantine/core";
 /* import { FaHome, FaInfoCircle, FaEnvelope } from "react-icons/fa"; */
@@ -17,22 +18,17 @@ const Footer = () => {
     <Box className={classes.footer}>
       <Group className={classes.iconText}>
         {/*  <FaHome className={classes.icon} /> */}
-        <Link>Home</Link>
-      </Group>
-      <Group className={classes.links}>
-        <Button component={Link} to="/about" className={classes.link}>
-          About Us
-        </Button>
-
         <Link to="/" className={classes.link}>
           Home
         </Link>
-        {/*    <Button component={Link} to="/services" className={classes.link}>
-          Services
+      </Group>
+      <Group className={classes.links}>
+        <Link to="/aboutus" className={classes.link}>
+          About Us
+        </Link>
+        {/*         <Button component={Link} to="/aboutus" className={classes.link}>
+          About us
         </Button> */}
-        <Button component={Link} to="/contact" className={classes.link}>
-          Contact
-        </Button>
       </Group>
     </Box>
   );
