@@ -9,66 +9,70 @@ import {
   Paper,
   Title,
 } from "@mantine/core";
-import { DatesProvider, DatePicker } from "@mantine/dates";
+import { DatePicker } from "@mantine/dates";
+import { useForm } from "@mantine/form";
+import { showNotification } from "@mantine/notifications";
 import dayjs from "dayjs";
 
 const JobForm = () => {
-  const [formValues, setFormValues] = useState({
-    company: "",
-    jobTitle: "",
-    description: "",
-    dateApplied: null,
-    status: "",
-    contact: "",
-    jobLink: "",
-    notes: "",
+  const navigate = useNavigate();
+  const [loading, setLoading] = useState(false);
+
+  const form = useForm({
+    initialValues: {
+      company: "",
+      jobTitle: "",
+      description: "",
+      dateApplied: null,
+      status: "",
+      contact: "",
+      jobLink: "",
+      notes: "",
+    },
   });
 
-  const navigate = useNavigate();
-
-  const handleChange = (event) => {
-    const { name, value } = event.target;
-    setFormValues((prevValues) => ({
-      ...prevValues,
-      [name]: value,
-    }));
-  };
-
-  const handleDateChange = (date) => {
-    setFormValues((prevValues) => ({
-      ...prevValues,
-      dateApplied: date,
-    }));
-  };
-
-  const handleSubmit = async (event) => {
-    event.preventDefault();
-
+  const handleSubmit = async (values) => {
+    setLoading(true);
     try {
-      const method = formValues.id ? "put" : "post";
-      const url = formValues.id
-        ? `${import.meta.env.VITE_API_URL}/jobs/${formValues.id}`
+      const method = values.id ? "put" : "post";
+      const url = values.id
+        ? `${import.meta.env.VITE_API_URL}/jobs/${values.id}`
         : `${import.meta.env.VITE_API_URL}/jobs`;
 
       const formattedData = {
-        ...formValues,
-        dateApplied: formValues.dateApplied
-          ? dayjs(formValues.dateApplied).format("YYYY-MM-DD")
+        ...values,
+        dateApplied: values.dateApplied
+          ? dayjs(values.dateApplied).format("YYYY-MM-DD")
           : null,
       };
 
-      const response = await axios({
+      await axios({
         method: method,
         url: url,
         headers: { "Content-Type": "application/json" },
         data: formattedData,
       });
 
-      const job = response.data;
-      navigate(`/job/${job.id}`);
+      showNotification({
+        title: "Success",
+        message: "Job application submitted successfully!",
+        color: "green",
+      });
+
+      setTimeout(() => navigate(`/jobs`), 2000);
     } catch (error) {
-      console.error(error);
+      showNotification({
+        title: "Error",
+        message: "Failed to submit the form. Please try again.",
+        color: "red",
+      });
+    } finally {
+      setLoading(false);
     }
+  };
+
+  const handleCreate = () => {
+    form.reset();
   };
 
   return (
@@ -76,13 +80,11 @@ const JobForm = () => {
       <Title order={2} mb="lg">
         Job Application Form
       </Title>
-      <form onSubmit={handleSubmit}>
+      <form onSubmit={form.onSubmit(handleSubmit)}>
         <TextInput
           label="Company"
           placeholder="Enter company name"
-          name="company"
-          value={formValues.company}
-          onChange={handleChange}
+          {...form.getInputProps("company")}
           required
           mb="md"
         />
@@ -90,9 +92,7 @@ const JobForm = () => {
         <TextInput
           label="Job Title"
           placeholder="Enter job title"
-          name="jobTitle"
-          value={formValues.jobTitle}
-          onChange={handleChange}
+          {...form.getInputProps("jobTitle")}
           required
           mb="md"
         />
@@ -100,48 +100,31 @@ const JobForm = () => {
         <Textarea
           label="Job Description"
           placeholder="Describe the job position"
-          name="description"
-          value={formValues.description}
-          onChange={handleChange}
+          {...form.getInputProps("description")}
           autosize
           minRows={3}
           mb="md"
         />
 
-        <DatesProvider
-          settings={{
-            locale: "fr",
-            firstDayOfWeek: 0,
-            weekendDays: [0],
-            timezone: "UTC",
-          }}
-        >
-          <DatePicker
-            label="Date Applied"
-            placeholder="Pick date"
-            value={formValues.dateApplied}
-            onChange={handleDateChange}
-            required
-            mb="md"
-          />
-        </DatesProvider>
+        <DatePicker
+          label="Date Applied"
+          placeholder="Pick date"
+          {...form.getInputProps("dateApplied")}
+          mb="md"
+        />
 
         <TextInput
           label="Status"
           placeholder="Enter application status"
-          name="status"
-          value={formValues.status}
-          onChange={handleChange}
+          {...form.getInputProps("status")}
           required
           mb="md"
         />
 
         <TextInput
           label="Contact"
-          placeholder="Enter contact details"
-          name="contact"
-          value={formValues.contact}
-          onChange={handleChange}
+          placeholder="Enter contact details (Email)"
+          {...form.getInputProps("contact")}
           required
           mb="md"
         />
@@ -149,9 +132,7 @@ const JobForm = () => {
         <TextInput
           label="Job Link"
           placeholder="Paste job link"
-          name="jobLink"
-          value={formValues.jobLink}
-          onChange={handleChange}
+          {...form.getInputProps("jobLink")}
           required
           mb="md"
         />
@@ -159,16 +140,19 @@ const JobForm = () => {
         <Textarea
           label="Notes"
           placeholder="Additional notes"
-          name="notes"
-          value={formValues.notes}
-          onChange={handleChange}
+          {...form.getInputProps("notes")}
           autosize
           minRows={2}
           mb="lg"
         />
 
         <Group position="right">
-          <Button type="submit">Submit</Button>
+          <Button variant="outline" onClick={handleCreate}>
+            Create New
+          </Button>
+          <Button type="submit" loading={loading}>
+            Submit
+          </Button>
         </Group>
       </form>
     </Paper>
