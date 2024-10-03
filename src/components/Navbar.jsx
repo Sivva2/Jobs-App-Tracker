@@ -23,8 +23,6 @@ const Navbar = () => {
   };
 
   return (
-    /*      <header className={classes.header}> */
-    /*      <div className={classes.inner}> */
     <Box style={{ overflow: "visible" }}>
       <Box p="md" mx="auto" bg="var(--mantine-color-blue-light)">
         <Text size="sm" mb={5}>
@@ -55,14 +53,6 @@ const Navbar = () => {
               </Menu.Item>
             </Menu.Dropdown>
           </Menu>{" "}
-          {
-            <link
-              id="favicon"
-              rel="shortcut icon"
-              type="image/png"
-              href="https://www.vhv.rs/dpng/d/604-6049672_github-logo-png-github-svg-icon-transparent-png"
-            />
-          }
           <Group justify="center">
             <Link to="/"> </Link>
 
@@ -70,7 +60,6 @@ const Navbar = () => {
               Jobs App Tracker
             </Title>
           </Group>
-          {/* <VisuallyHidden> Try a hidden link</VisuallyHidden>{" "} */}
           <Autocomplete
             className="header"
             placeholder="Search"
@@ -92,8 +81,6 @@ const Navbar = () => {
         </Group>
       </Box>
     </Box>
-    /* </div> */
-    /*  </header> */
   );
 };
 export default Navbar;
