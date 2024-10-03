@@ -14,20 +14,21 @@ import { useForm } from "@mantine/form";
 import { showNotification } from "@mantine/notifications";
 import dayjs from "dayjs";
 
-const JobForm = () => {
+const JobForm = ({ job }) => {
   const navigate = useNavigate();
   const [loading, setLoading] = useState(false);
 
   const form = useForm({
     initialValues: {
-      company: "",
-      jobTitle: "",
-      description: "",
-      dateApplied: null,
-      status: "",
-      contact: "",
-      jobLink: "",
-      notes: "",
+      id: job?.id || null,
+      company: job?.company || "",
+      jobTitle: job?.jobTitle || "",
+      description: job?.description || "",
+      dateApplied: job?.dateApplied ? new Date(job.dateApplied) : null,
+      status: job?.status || "",
+      contact: job?.contact || "",
+      jobLink: job?.jobLink || "",
+      notes: job?.notes || "",
     },
   });
 
@@ -55,7 +56,9 @@ const JobForm = () => {
 
       showNotification({
         title: "Success",
-        message: "Job application submitted successfully!",
+        message: values.id
+          ? "Job updated successfully!"
+          : "Job application submitted successfully!",
         color: "green",
       });
 
@@ -74,7 +77,7 @@ const JobForm = () => {
   return (
     <Paper shadow="md" radius="md" p="xl" withBorder>
       <Title order={2} mb="lg">
-        Job Application Form
+        {job ? "Update Job Application" : "Job Application Form"}
       </Title>
       <form onSubmit={form.onSubmit(handleSubmit)}>
         <TextInput
@@ -104,8 +107,11 @@ const JobForm = () => {
 
         <DatePicker
           label="Date Applied"
-          placeholder="Pick date"
-          {...form.getInputProps("dateApplied")}
+          placeholder="Pick a date"
+          value={form.values.dateApplied}
+          onChange={(value) => form.setFieldValue("dateApplied", value)}
+          inputFormat="YYYY-MM-DD"
+          labelFormat="MMMM YYYY"
           mb="md"
         />
 
@@ -144,7 +150,7 @@ const JobForm = () => {
 
         <Group position="right">
           <Button type="submit" loading={loading}>
-            Submit
+            {job ? "Update" : "Submit"}
           </Button>
         </Group>
       </form>

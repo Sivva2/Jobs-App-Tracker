@@ -27,14 +27,15 @@ const UpdateJob = () => {
   }, [jobId]);
 
   if (loading) return <p>Loading job data...</p>;
+
   return (
     <Container size="sm" className="update-job-container">
       <LoadingOverlay visible={loading} />
-      {!loading && job ? (
+      {job ? (
         <JobForm job={job} />
       ) : (
         <Text align="center" className="loading-text">
-          Loading job data...
+          Failed to load job data.
         </Text>
       )}
     </Container>

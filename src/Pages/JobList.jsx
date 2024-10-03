@@ -78,7 +78,7 @@ const JobList = () => {
             >
               <Anchor
                 component={Link}
-                to={`/job/${job.id}`}
+                to={`/jobs/${job.id}`}
                 className="job-link"
               >
                 <Text weight={500}>{job.company}</Text>

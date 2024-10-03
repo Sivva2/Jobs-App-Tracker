@@ -52,7 +52,7 @@ const JobDetailPage = () => {
       <button type="button" onClick={remove}>
         Delete
       </button>
-      <Link to={`/job/${jobId}/Update`}>
+      <Link to={`/jobs/${jobId}/Update`}>
         <button type="button">Update</button>
       </Link>
     </>
