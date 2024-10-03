@@ -16,10 +16,27 @@ import classes from "../styles/Footer.module.css";
 const Footer = () => {
   return (
     <Box className={classes.footer}>
-      <Group className={classes.iconText}>
+      <Group className={classes.links}>
         {/*  <FaHome className={classes.icon} /> */}
         <Link to="/" className={classes.link}>
           Home
+        </Link>
+      </Group>
+      <Group className={classes.links}>
+        {/*  <FaHome className={classes.icon} /> */}
+        <Link
+          rel="icon"
+          type="image/png"
+          href="https://www.vhv.rs/dpng/d/604-6049672_github-logo-png-github-svg-icon-transparent-png.png"
+          to="https://github.com/Sivva2/Jobs-App-Tracker"
+          className={classes.link}
+        ></Link>
+        <Link
+          target="https://github.com/Sivva2/Jobs-App-Tracker"
+          to="https://github.com/Sivva2/Jobs-App-Tracker"
+          className={classes.link}
+        >
+          GitHub Repo
         </Link>
       </Group>
       <Group className={classes.links}>

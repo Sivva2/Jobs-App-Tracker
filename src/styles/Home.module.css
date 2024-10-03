@@ -8,12 +8,14 @@
   color: black;
   font-size: 2rem;
   margin-bottom: 20px;
+  padding: 25px;
+  border-left: 2em;
   font-family: Verdana, Geneva, Tahoma, sans-serif;
 }
 
 .paragraphBox {
   background-color: var(--mantine-color-white);
-  padding: 15px;
+  padding: 25px;
   font-family: Verdana, Geneva, Tahoma, sans-serif;
   border-radius: 8px;
   box-shadow: 2rem;
@@ -24,5 +26,6 @@
   color: black;
   font-size: 1rem;
   margin-bottom: 15px;
+  max-width: fit-content;
   font-family: Verdana, Geneva, Tahoma, sans-serif;
 }
