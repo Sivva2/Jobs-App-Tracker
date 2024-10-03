@@ -12,7 +12,7 @@ import {
   Group,
   Button,
 } from "@mantine/core";
-import { useForm } from "@mantine/form";
+import classes from "../styles/JobList.module.css";
 
 const JobList = () => {
   const [jobs, setJobs] = useState([]);
@@ -44,14 +44,19 @@ const JobList = () => {
 
   if (loading)
     return (
-      <div className="loader-container">
+      <div className={classes.loaderContainer}>
         <Loader size="xl" variant="bars" />
       </div>
     );
 
   if (error)
     return (
-      <Alert title="Error" color="red" withCloseButton className="error-alert">
+      <Alert
+        title="Error"
+        color="red"
+        withCloseButton
+        className={classes.errorAlert}
+      >
         {error}
       </Alert>
     );
@@ -59,27 +64,31 @@ const JobList = () => {
   return (
     <>
       <Group position="apart" mb="lg">
-        <Title align="center" className="title">
+        <Title align="center" className={classes.title}>
           Job App Tracker
         </Title>
-        <Button onClick={handleCreate} variant="outline">
+        <Button
+          onClick={handleCreate}
+          variant="outline"
+          className={classes.button}
+        >
           Create New Job
         </Button>
       </Group>
-      <List spacing="sm" size="sm" type="unordered" className="job-list">
+      <List spacing="sm" size="sm" type="unordered" className={classes.jobList}>
         {jobs.map((job) => (
-          <List.Item key={job.id} className="job-list-item">
+          <List.Item key={job.id} className={classes.jobListItem}>
             <Card
               shadow="sm"
               padding="lg"
               radius="md"
               withBorder
-              className="job-card"
+              className={classes.jobCard}
             >
               <Anchor
                 component={Link}
                 to={`/jobs/${job.id}`}
-                className="job-link"
+                className={classes.jobLink}
               >
                 <Text weight={500}>{job.company}</Text>
               </Anchor>
@@ -90,5 +99,4 @@ const JobList = () => {
     </>
   );
 };
-
 export default JobList;
