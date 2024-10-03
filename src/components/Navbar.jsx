@@ -39,52 +39,52 @@ const Navbar = () => {
                 Menu
               </Button>
             </Menu.Target>
-
-      <Menu.Dropdown>
-        <Menu.Item component={Link} to="/">
-          Home
-        </Menu.Item>
-        <Menu.Item component={Link} to="/jobs">
-          Job List
-        </Menu.Item>
-        <Menu.Item component={Link} to="/job/:jobId/Update">
-          Job Update
-        </Menu.Item>
-      </Menu.Dropdown>
-    </Menu>
+            <Menu.Dropdown>
+              <Menu.Item className="header" component={Link} to="/">
+                Home
+              </Menu.Item>
+              <Menu.Item className="droplistitem" component={Link} to="/jobs">
+                Job List
+              </Menu.Item>
+              <Menu.Item
+                className="droplistitem"
+                component={Link}
+                to="/job/:jobId/Update"
+              >
+                Job Update
+              </Menu.Item>
+            </Menu.Dropdown>
+          </Menu>{" "}
+          <Title size="md" variant="default">
+            Jobs App Tracker
+          </Title>
+          {/*               <Button size="md" fullWidth variant="default">
+                Jobs App Tracker
+              </Button> */}
+          <VisuallyHidden> Try a hidden link</VisuallyHidden>{" "}
+          <Autocomplete
+            className="header"
+            placeholder="Search"
+            data={[
+              "Web-dev Jr",
+              "Web-dev Sr",
+              "Internship",
+              "Business Analyst",
+              "Business Intelligence Analyst",
+              "Product Manager Jr",
+              "Business Dev",
+            ]}
+            visibleFrom="xs"
+          />
+          <Button className="header" component={Link} to="/">
+            {" "}
+            Log In
+          </Button>
+        </Group>
+      </Box>
+    </Box>
+    /*     </div>
+    </header> */
   );
 };
 export default Navbar;
-
-{
-  /* <header className={classes.header}>
-  <div className={classes.inner}>
-    <Group>
-      <Group ml={50} gap={5} className={classes.links} visibleFrom="sm">
-        {items}
-      </Group>
-      <Autocomplete
-        className={classes.search}
-        placeholder="Search"
-        leftSection={
-          <IconSearch
-            style={{ width: rem(16), height: rem(16) }}
-            stroke={1.5}
-          />
-        }
-        data={[
-          "React",
-          "Angular",
-          "Vue",
-          "Next.js",
-          "Riot.js",
-          "Svelte",
-          "Blitz.js",
-        ]}
-        visibleFrom="xs"
-      />
-    </Group>
-  </div>
-</header>;
- */
-}
