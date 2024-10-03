@@ -74,7 +74,7 @@ const Navbar = () => {
             ]}
             visibleFrom="xs"
           />
-          <Button className="header" component={Link} to="/">
+          <Button className="header" component={Link} to="/login">
             {" "}
             Log In
           </Button>
