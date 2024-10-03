@@ -1,12 +1,24 @@
 import axios from "axios";
 import { useEffect, useState } from "react";
-import { Link } from "react-router-dom";
-import { Loader, Alert, Card, Title, Text, List, Anchor } from "@mantine/core";
+import { Link, useNavigate } from "react-router-dom";
+import {
+  Loader,
+  Alert,
+  Card,
+  Title,
+  Text,
+  List,
+  Anchor,
+  Group,
+  Button,
+} from "@mantine/core";
+import { useForm } from "@mantine/form";
 
 const JobList = () => {
   const [jobs, setJobs] = useState([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
+  const navigate = useNavigate();
 
   useEffect(() => {
     const fetchJobs = async () => {
@@ -26,6 +38,10 @@ const JobList = () => {
     fetchJobs();
   }, []);
 
+  const handleCreate = () => {
+    navigate("/jobs/new");
+  };
+
   if (loading)
     return (
       <div className="loader-container">
@@ -42,9 +58,14 @@ const JobList = () => {
 
   return (
     <>
-      <Title align="center" mb="lg" className="title">
-        Job App Tracker
-      </Title>
+      <Group position="apart" mb="lg">
+        <Title align="center" className="title">
+          Job App Tracker
+        </Title>
+        <Button onClick={handleCreate} variant="outline">
+          Create New Job
+        </Button>
+      </Group>
       <List spacing="sm" size="sm" type="unordered" className="job-list">
         {jobs.map((job) => (
           <List.Item key={job.id} className="job-list-item">

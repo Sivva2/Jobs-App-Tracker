@@ -49,7 +49,7 @@ const Navbar = () => {
               <Menu.Item
                 className="droplistitem"
                 component={Link}
-                to="/job/:jobId/Update"
+                to="/jobs/:jobId/Update"
               >
                 Job Update
               </Menu.Item>
