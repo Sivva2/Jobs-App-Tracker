@@ -70,10 +70,22 @@ const Home = () => {
           <Text className={classes.testimonial}>
             "This app transformed my job search process. Highly recommend!"
           </Text>
+          <Text
+            className={classes.testimonial}
+            style={{ fontStyle: "italic", marginTop: "8px" }}
+          >
+            - Mat
+          </Text>
         </Center>
         <Center>
           <Text className={classes.testimonial}>
             "I love how organized everything is now. A lifesaver!"
+          </Text>
+          <Text
+            className={classes.testimonial}
+            style={{ fontStyle: "italic", marginTop: "8px" }}
+          >
+            - Eric
           </Text>
         </Center>
       </Box>

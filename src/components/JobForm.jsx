@@ -13,6 +13,7 @@ import { DatePicker } from "@mantine/dates";
 import { useForm } from "@mantine/form";
 import { showNotification } from "@mantine/notifications";
 import dayjs from "dayjs";
+import classes from "../styles/JobForm.module.css";
 
 const JobForm = ({ job }) => {
   const navigate = useNavigate();
@@ -113,8 +114,13 @@ const JobForm = ({ job }) => {
           inputFormat="YYYY-MM-DD"
           labelFormat="MMMM YYYY"
           mb="md"
+          classNames={{
+            input: classes.input,
+            calendarHeader: classes.calendarHeader,
+            day: classes.day,
+            selected: classes.selectedDay,
+          }}
         />
-
         <TextInput
           label="Status"
           placeholder="Enter application status"

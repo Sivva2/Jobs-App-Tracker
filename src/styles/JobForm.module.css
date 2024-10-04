@@ -1,0 +1,35 @@
+.input {
+  font-size: 14px !important;
+  padding: 10px !important;
+  border-radius: 4px !important;
+  border: 1px solid #ccc !important;
+}
+
+.calendarHeader {
+  display: flex !important;
+  justify-content: space-between !important;
+  padding: 10px !important;
+  background-color: #f0f0f0 !important;
+}
+
+.day {
+  padding: 8px !important;
+  font-size: 12px !important;
+  color: #333 !important;
+  transition: background-color 0.3s, color 0.3s !important;
+}
+
+.selectedDay {
+  background-color: #1c7ed6 !important;
+  color: white !important;
+  font-weight: bold !important;
+}
+
+.day:hover {
+  background-color: #e0e0e0;
+  cursor: pointer;
+}
+
+.day.selected {
+  border: 2px solid #1c7ed6 !important;
+}

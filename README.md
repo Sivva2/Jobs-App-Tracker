@@ -1,8 +1,33 @@
-# React + Vite
+# Job Application Tracker
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+This project features a **Job Application Tracker** built with **React**, **Axios**, and **Mantine**. It allows users to submit or update job applications easily.
 
-Currently, two official plugins are available:
+## Organisation
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+https://trello.com/b/kgblGMs7/job-application-manager
+
+## Features
+
+- Submit new job applications.
+- Update existing job applications.
+- Search and filter job (Upcoming).
+- Set Reminders (Upcoming).
+- Follow your Statistics (Upcoming)
+
+## Technologies Used
+
+- **React**: Front-end JavaScript library for building user interfaces.
+- **Axios**: Promise-based HTTP client for making requests to the API.
+- **Mantine**: A React component library providing UI components and styles.
+- **Day.js**: A lightweight date library for parsing and formatting dates.
+- **React Router**: For navigation between different pages in the application.
+
+## How to use
+
+npm install axios @mantine/core @mantine/dates @mantine/notifications dayjs
+
+npm run dev
+
+## Contributions
+
+Contributions are welcome! Please create a pull request or raise an issue for any enhancements (Yes i'm talking to you Mat and Eric).
