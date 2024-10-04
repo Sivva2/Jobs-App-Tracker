@@ -9,7 +9,7 @@ import {
   Fieldset,
   Checkbox,
 } from "@mantine/core";
-import classes from "../styles/Home.module.css";
+import classes from "../styles/Login.module.css";
 
 const Login = () => {
   const [username, setUsername] = useState("");
